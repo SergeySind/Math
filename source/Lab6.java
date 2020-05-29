@@ -30,43 +30,14 @@ public class Lab6 {
 
 
         System.out.println("2arctg(x)-3x+2");
-        for (int i = 0; i < 100; i++) {
-            if (function1.apply(Xs1[0]) > 0) {
-                System.out.println(bisectionPrototype(function1, Xs1[0] - 1, Xs1[0], EPSILON));
-                break;
-            } else if (function1.apply(Xs1[0]) < function1.apply(Xs1[0] - 1)) {
-                Xs1[0] = Xs1[0] - 1;
-            }
-
-        }
+        ext(Xs1, function1, -1);
         Xs1[0] = 0.914;
-        for (int i = 0; i < 100; i++) {
-            if (function1.apply(Xs1[0]) > 0) {
-                System.out.println(bisectionPrototype(function1, Xs1[0] - 1, Xs1[0], EPSILON));
-                break;
-            } else if (function1.apply(Xs1[0]) < function1.apply(Xs1[0] + 1)) {
-                Xs1[0] = Xs1[0] + 1;
-            }
-        }
+        ext(Xs1, function1, +1);
 
         System.out.println("2x^4+8x^3+8x^2-1");
-        for (int i = 0; i < 100; i++) {
-            if (function1.apply(Xs2[0]) > 0) {
-                System.out.println(bisectionPrototype(function2, Xs2[0] - 1, Xs2[0], EPSILON));
-                break;
-            } else if (function2.apply(Xs2[0]) < function2.apply(Xs2[0] - 1)) {
-                Xs2[0] = Xs2[0] - 1;
-            }
-        }
+        ext(Xs2, function2, -1);
         Xs2[0] = 0;
-        for (int i = 0; i < 100; i++) {
-            if (function2.apply(Xs2[0]) > 0) {
-                System.out.println(bisectionPrototype(function2, Xs2[0] - 1, Xs2[0], EPSILON));
-                break;
-            } else if (function2.apply(Xs2[0]) < function2.apply(Xs2[0] + 1)) {
-                Xs2[0] = Xs2[0] + 1;
-            }
-        }
+        ext(Xs2, function2, +1);
         System.out.println(
                 "Определим промежутки по графикам функций\n" +
                         "[log2(x+2)](x-1)\n" +
@@ -77,12 +48,23 @@ public class Lab6 {
                         bisectionPrototype(function4, 2, 3, EPSILON));
     }
 
-    private static double bisectionPrototype(DoubleFunction<Double> function, double lowerBound, double upperBound, double precision) {
+    private static void ext(double[] xs1, DoubleUnaryOperator function1, int mod) {
+        for (int i = 0; i < 100; i++) {
+            if (function1.applyAsDouble(xs1[0]) > 0) {
+                System.out.println(bisectionPrototype(function1, xs1[0] - 1, xs1[0], EPSILON));
+                break;
+            } else if (function1.applyAsDouble(xs1[0]) < function1.applyAsDouble(xs1[0] + mod)) {
+                xs1[0] = xs1[0] + mod;
+            }
+        }
+    }
+
+    private static double bisectionPrototype(DoubleUnaryOperator function, double lowerBound, double upperBound, double precision) {
         double media = 0;
         while ((upperBound - lowerBound) > precision) {
             media = (lowerBound + upperBound) / 2;
-            if (function.apply(media) == 0) break;
-            if (function.apply(media) * function.apply(lowerBound) < 0) upperBound = media;
+            if (function.applyAsDouble(media) == 0) break;
+            if (function.applyAsDouble(media) * function.applyAsDouble(lowerBound) < 0) upperBound = media;
             else lowerBound = media;
         }
         return media;
