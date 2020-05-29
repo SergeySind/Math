@@ -2,6 +2,7 @@ import java.util.function.DoubleFunction;
 
 public class Lab6 {
     private static final double EPSILON = 0.000001;
+    private static final int ITERATION_COUNT = 100;
     private static final DoubleFunction<Double> function1 = x -> 2 * Math.atan(x) - 3 * x + 2;
     private static final DoubleFunction<Double> function2 = x -> 2 * Math.pow(x, 4) + 8 * Math.pow(x, 3) + 8 * Math.pow(x, 2) - 1;
     private static final DoubleFunction<Double> function3 = x -> Math.log(x + 2) / Math.log(2) * (x - 1) - 1;
@@ -49,7 +50,7 @@ public class Lab6 {
     }
 
     private static void ext(double[] xs1, DoubleUnaryOperator function1, int mod) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < ITERATION_COUNT; i++) {
             if (function1.applyAsDouble(xs1[0]) > 0) {
                 System.out.println(bisectionPrototype(function1, xs1[0] - 1, xs1[0], EPSILON));
                 break;
