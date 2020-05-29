@@ -10,13 +10,6 @@ public class Lab7 {
 //    public static final DoubleUnaryOperator equation2 = x -> x * x * x - 0.1 * x * x + 0.4 * x - 1.5;
 
     public static void main(String args[]) {
-
-        double[] Xs1 = new double[1];
-        double[] Xs2 = new double[1];
-        double[] Xs3 = new double[1];
-        double[] Xs4 = new double[4];
-
-
         System.out.printf("Определим промежутки по графикам функций:\n" +
                         "ctg(x)-x/4 = 0                : %f\n" +
                         "x^3 + 0.1x^2 + 0.4x - 1.2 = 0 : %f",
