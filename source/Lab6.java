@@ -7,6 +7,20 @@ public class Lab6 {
     private static final DoubleFunction<Double> function3 = x -> Math.log(x + 2) / Math.log(2) * (x - 1) - 1;
     private static final DoubleFunction<Double> function4 = x -> Math.sin(x - 0.5) - x + 0.8;
 
+    //    N13
+    public static final DoubleUnaryOperator function1 = x -> Math.pow(3, x) + 2 * x - 5;
+    public static final DoubleUnaryOperator function2 = x -> x * x * x * x - 4 * x * x * x - 8 * x * x + 1;
+    public static final DoubleUnaryOperator function3 = x -> x * x - 3 + Math.pow(0.5, x);
+    public static final DoubleUnaryOperator function4 = x -> (x - 2) * (x - 2) * Math.log10(x + 11) - 1;
+
+//    N15
+//    public static final DoubleUnaryOperator function1 = x -> Math.pow(3, x - 1) - 4 - x;
+//    public static final DoubleUnaryOperator function2 = x -> 2 * x * x * x - 9 * x * x - 60 * x + 1;
+//    public static final DoubleUnaryOperator function3 = x -> (x - 3) * (x - 3) * lohHalf(x - 2) + 1;
+//    public static final DoubleUnaryOperator function4 = x -> 5 * Math.sin(x) - x + 1;
+//    public static double lohHalf(double n) {
+//        return Math.log(n) / Math.log(0.5);
+//    }
 
     public static void main(String[] args) {
         double[] Xs1 = {-0.577350269189626, 0.577350269189626};
