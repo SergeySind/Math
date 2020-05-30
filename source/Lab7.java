@@ -12,20 +12,12 @@ public class Lab7 {
 
     public static void main(String[] args) {
         System.out.printf("Определим промежутки по графикам функций:\n" +
-                        "%s:\t%f\n",// +
-//                        "%s:\t%f\n",
+                        "%s:\t%f\n" +
+                        "%s:\t%f\n",
                 "ctg(x)-x/4 = 0",
-                secantMethod(equation1, 1.2, 1.4, EPSILON));//,
-//                "x^3 + 0.1x^2 + 0.4x - 1.2 = 0 ",
-//                secantMethod(equation2, 0.8, 1, EPSILON));
-//        double a = 1.2;
-//        double xn = 1.331592463384973;
-//        double a_xn =  xn -a;
-////        double b = 1.4;
-//        double fxn = equation3.applyAsDouble(xn);
-//        double fa = equation3.applyAsDouble(a);
-//
-//        System.out.println(a - fxn/(fxn-fa)*a_xn);
+                secantMethod(equation1, 1.2, 1.4, EPSILON),
+                "x^3 + 0.1x^2 + 0.4x - 1.2 = 0 ",
+                secantMethod(equation2, 0.8, 1, EPSILON));
 
     }
 
